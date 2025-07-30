@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwn6e8kmndkij"]
+
+[ext_resource type="PackedScene" uid="uid://cps43u5vmueb8" path="res://player.tscn" id="1_isr7r"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_isr7r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fsmm"]
+size = Vector2(2307, 20)
+
+[node name="DebugRoom" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(576, 648)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(577.5, -1.90735e-06)
+scale = Vector2(2307, 20)
+mesh = SubResource("QuadMesh_isr7r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(577.5, 0)
+shape = SubResource("RectangleShape2D_7fsmm")
+
+[node name="Player" parent="." instance=ExtResource("1_isr7r")]
+position = Vector2(551, 154)
