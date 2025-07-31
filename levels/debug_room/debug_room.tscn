@@ -38,7 +38,9 @@ polygon = PackedVector2Array(2368.06, 686.784, 2528.36, 647.142, 2665.94, 577.24
 
 [node name="Bird" parent="." instance=ExtResource("1_hsmly")]
 position = Vector2(499, 499)
-ascent_velocity = 2000.0
+ascent_velocity = 1750.0
+flight_time_limit = 15.0
+flight_drain_factor = 1.25
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1333, 252)
