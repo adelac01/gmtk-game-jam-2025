@@ -11,7 +11,6 @@ config_version=5
 [application]
 
 config/name="game-jam"
-run/main_scene="uid://bi0uhpv0ft8ar"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
