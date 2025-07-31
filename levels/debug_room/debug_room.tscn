@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwn6e8kmndkij"]
 
-[ext_resource type="PackedScene" uid="uid://cps43u5vmueb8" path="res://playable_characters/out_of_painting/player.tscn" id="1_hsmly"]
+[ext_resource type="PackedScene" uid="uid://bwb66b007msat" path="res://playable_characters/bird/bird.tscn" id="1_hsmly"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_isr7r"]
 
@@ -22,9 +22,6 @@ mesh = SubResource("QuadMesh_isr7r")
 position = Vector2(577.5, 0)
 shape = SubResource("RectangleShape2D_7fsmm")
 
-[node name="Player" parent="." instance=ExtResource("1_hsmly")]
-position = Vector2(1949, 277)
-
 [node name="Curved Angles" type="Node2D" parent="."]
 
 [node name="Line2D" type="Line2D" parent="Curved Angles"]
@@ -38,3 +35,12 @@ default_color = Color(0, 0, 0, 1)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Curved Angles/Line2D/StaticBody2D"]
 position = Vector2(-0.165837, 1.39092)
 polygon = PackedVector2Array(2368.06, 686.784, 2528.36, 647.142, 2665.94, 577.246, 2785.08, 484.4, 2837.9, 432.239, 2893.18, 367.56, 2926.96, 320.615, 2961.34, 242.374, 2981.62, 149.528, 3003.11, 30.601, 3009.26, -79.9799, 3011.1, -183.258, 3000.04, -270.889, 2975.03, -339.045, 2965.2, -335.916, 2990.22, -267.759, 3000.66, -183.258, 2998.81, -81.0232, 2993.29, 30.601, 2971.18, 150.571, 2951.52, 240.287, 2918.36, 314.356, 2887.04, 360.257, 2831.15, 424.937, 2777.71, 477.098, 2659.18, 568.901, 2528.36, 636.71, 2365.61, 677.395)
+
+[node name="Bird" parent="." instance=ExtResource("1_hsmly")]
+position = Vector2(499, 499)
+ascent_velocity = 2000.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1333, 252)
+scale = Vector2(1.00143, 1.02104)
+zoom = Vector2(0.5, 0.5)
