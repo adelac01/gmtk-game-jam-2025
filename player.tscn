@@ -9,6 +9,8 @@ height = 126.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_onrkg")
+SPEED = 500.0
+JUMP_VELOCITY = 800.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_4flbx")
