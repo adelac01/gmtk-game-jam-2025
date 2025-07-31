@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7kjs4lehiruk"
-path="res://.godot/imported/Artboard 1.png-17e4ba1aceac70d5eb0dcd181599257a.ctex"
+uid="uid://cbxnxfvnq0f7t"
+path="res://.godot/imported/icon.svg-8532568a05e6b19c9fd25b71447cfbb2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Artboard 1.png"
-dest_files=["res://.godot/imported/Artboard 1.png-17e4ba1aceac70d5eb0dcd181599257a.ctex"]
+source_file="res://playable_characters/out_of_painting/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-8532568a05e6b19c9fd25b71447cfbb2.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
