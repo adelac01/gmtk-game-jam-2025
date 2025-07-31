@@ -9,18 +9,31 @@ size = Vector2(2307, 20)
 
 [node name="DebugRoom" type="Node2D"]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Platform" type="StaticBody2D" parent="."]
 position = Vector2(576, 648)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(577.5, -1.90735e-06)
 scale = Vector2(2307, 20)
 mesh = SubResource("QuadMesh_isr7r")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
 position = Vector2(577.5, 0)
 shape = SubResource("RectangleShape2D_7fsmm")
 
 [node name="Player" parent="." instance=ExtResource("1_isr7r")]
-position = Vector2(551, 154)
+position = Vector2(2013, 341)
+
+[node name="Curved Angles" type="Node2D" parent="."]
+
+[node name="Line2D" type="Line2D" parent="Curved Angles"]
+position = Vector2(-1504.73, 37.6667)
+scale = Vector2(1.62822, 0.958574)
+points = PackedVector2Array(2367, 682, 2530, 641, 2662, 573, 2781, 481, 2834, 429, 2890, 364, 2923, 317, 2956, 242, 2976, 151, 2998, 31, 3004, -80, 3006, -183, 2995, -269, 2970, -336)
+default_color = Color(0, 0, 0, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Curved Angles/Line2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Curved Angles/Line2D/StaticBody2D"]
+polygon = PackedVector2Array(2371.13, 687.827, 2528.35, 648.185, 2680.05, 569.944, 2781.39, 486.486, 2851.4, 418.677, 2887.64, 375.905, 2920.8, 328.961, 2961.34, 242.374, 2981.61, 145.355, 2993.89, 86.9347, 3004.33, 27.4713, 3009.24, -50.7699, 3011.7, -133.184, 3011.09, -188.474, 3001.26, -268.802, 2987.75, -308.444, 2978.54, -328.265, 2974.24, -339.741, 2963.18, -334.525, 2971.17, -314.703, 2980.38, -287.58, 2988.98, -264.629, 2995.73, -212.468, 3000.65, -181.172, 2997.57, -64.3317, 2992.66, 4.5206, 2987.75, 57.7246, 2974.85, 120.318, 2960.11, 187.083, 2947.21, 245.503, 2917.73, 315.399, 2893.78, 351.912, 2858.77, 391.554, 2839.12, 414.504, 2788.14, 465.622, 2756.82, 490.659, 2716.29, 524.042, 2675.14, 554.295, 2649.34, 572.03, 2621.09, 583.505, 2559.67, 613.759, 2501.94, 637.753, 2449.74, 650.271, 2396.31, 664.876, 2368.67, 671.136)
