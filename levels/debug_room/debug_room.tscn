@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dwn6e8kmndkij"]
 
-[ext_resource type="PackedScene" uid="uid://cps43u5vmueb8" path="res://playable_characters/out_of_painting/player.tscn" id="1_hsmly"]
+[ext_resource type="PackedScene" uid="uid://dr6p77e6hqcet" path="res://playable_characters/fish/fish.tscn" id="1_hsmly"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_isr7r"]
 
@@ -22,8 +22,8 @@ mesh = SubResource("QuadMesh_isr7r")
 position = Vector2(577.5, 0)
 shape = SubResource("RectangleShape2D_7fsmm")
 
-[node name="Player" parent="." instance=ExtResource("1_hsmly")]
-position = Vector2(1949, 277)
+[node name="fish" parent="." instance=ExtResource("1_hsmly")]
+position = Vector2(434, 309)
 
 [node name="Curved Angles" type="Node2D" parent="."]
 
