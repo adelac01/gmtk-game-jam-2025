@@ -22,5 +22,3 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 
 	move_and_slide()
-func accelerate(direction: Vector2):
-	velocity = velocity.move_toward(SPEED*direction, ACCELERATION)
