@@ -1,12 +1,12 @@
 [gd_scene load_steps=13 format=3 uid="uid://dr6p77e6hqcet"]
 
-[ext_resource type="Texture2D" uid="uid://cl7nbpj0hptl3" path="res://playable_characters/fish/IMG_3616.png" id="2_uadbn"]
+[ext_resource type="Texture2D" uid="uid://dkfccub0sb1ek" path="res://playable_characters/fish/Illustration24.png" id="1_pxq3h"]
 
 [sub_resource type="GDScript" id="GDScript_pxq3h"]
 script/source = "extends CharacterBody2D
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-const SPEED = 500
+const SPEED = 1000
 const JUMP_VELOCITY = -500
 const FLOATING = -500
 @export_range(0,1) var acceleration = 0.3
@@ -38,41 +38,44 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 "
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uadbn"]
+atlas = ExtResource("1_pxq3h")
+region = Rect2(0, 0, 1250, 1250)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_pu8ma"]
-atlas = ExtResource("2_uadbn")
-region = Rect2(0, 0, 2000, 1500)
+atlas = ExtResource("1_pxq3h")
+region = Rect2(1250, 0, 1250, 1250)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1s6jn"]
-atlas = ExtResource("2_uadbn")
-region = Rect2(0, 1500, 2000, 1500)
+atlas = ExtResource("1_pxq3h")
+region = Rect2(2500, 0, 1250, 1250)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w18bd"]
-atlas = ExtResource("2_uadbn")
-region = Rect2(0, 3000, 2000, 1500)
+atlas = ExtResource("1_pxq3h")
+region = Rect2(3750, 0, 1250, 1250)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7x1ve"]
-atlas = ExtResource("2_uadbn")
-region = Rect2(0, 4500, 2000, 1500)
+atlas = ExtResource("1_pxq3h")
+region = Rect2(5000, 0, 1250, 1250)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jv5bl"]
-atlas = ExtResource("2_uadbn")
-region = Rect2(0, 6000, 2000, 1500)
+atlas = ExtResource("1_pxq3h")
+region = Rect2(6250, 0, 1250, 1250)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j3hpo"]
-atlas = ExtResource("2_uadbn")
-region = Rect2(0, 7500, 2000, 1500)
+atlas = ExtResource("1_pxq3h")
+region = Rect2(7500, 0, 1250, 1250)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0lag5"]
-atlas = ExtResource("2_uadbn")
-region = Rect2(0, 9000, 2000, 1500)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t1d1l"]
-atlas = ExtResource("2_uadbn")
-region = Rect2(0, 10500, 2000, 1500)
+atlas = ExtResource("1_pxq3h")
+region = Rect2(8750, 0, 1250, 1250)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pu8ma"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uadbn")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pu8ma")
 }, {
@@ -93,17 +96,14 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0lag5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t1d1l")
 }],
 "loop": true,
 "name": &"default",
-"speed": 10.0
+"speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uadbn"]
-size = Vector2(226, 155.75)
+[sub_resource type="CircleShape2D" id="CircleShape2D_pxq3h"]
+radius = 83.7213
 
 [node name="fish" type="CharacterBody2D"]
 script = SubResource("GDScript_pxq3h")
@@ -113,11 +113,12 @@ position = Vector2(-19, 3.00001)
 scale = Vector2(0.163458, 0.163458)
 sprite_frames = SubResource("SpriteFrames_pu8ma")
 autoplay = "default"
-frame_progress = 0.715844
+frame_progress = 0.0447372
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(200, -31)
 zoom = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-27, 4.125)
-shape = SubResource("RectangleShape2D_uadbn")
+position = Vector2(-18.5, 4)
+shape = SubResource("CircleShape2D_pxq3h")
