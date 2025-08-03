@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cmviuihkj65s8" path="res://levels/ocean/tilemap.png" id="2_0ocq2"]
 [ext_resource type="Texture2D" uid="uid://c5xsr6aayr0pm" path="res://levels/ocean/beach_tilemap.png" id="3_bi408"]
 [ext_resource type="PackedScene" uid="uid://dr6p77e6hqcet" path="res://playable_characters/fish/fish.tscn" id="4_8ivk0"]
-[ext_resource type="PackedScene" uid="uid://iawis0ohqa30" path="res://levels/debug_room/killzone.tscn" id="5_a4ryg"]
+[ext_resource type="PackedScene" uid="uid://iawis0ohqa30" path="res://misc/killzone/killzone.tscn" id="5_a4ryg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xtxhb"]
 texture = ExtResource("1_xtxhb")

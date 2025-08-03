@@ -1,15 +1,19 @@
 extends CharacterBody2D
 
 
-@export var speed = 400.0
+@export var speed = 500.0
 @export var jump_velocity = -625.0
 
 @onready var _animation = $AnimatedSprite2D
 
 var is_moving: bool
 var is_airborne: bool = false
+var is_dead: bool = false
 
 func _physics_process(delta: float) -> void:
+	
+	if is_dead:
+		return
 	
 	is_moving = false
 
@@ -45,3 +49,9 @@ func _physics_process(delta: float) -> void:
 		_animation.stop()
 
 	move_and_slide()
+
+
+func _on_killzones_player_dead() -> void:
+	is_dead = true
+	velocity = Vector2()
+	visible = false
