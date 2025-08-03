@@ -1,0 +1,10 @@
+extends TileMap
+
+@onready var timer: Timer = $Timer
+
+func _on_body_entered(body):
+	print("1")
+	timer.start()	
+
+func _on_timer_timeout(): 
+	get_tree().reload_current_scene()
