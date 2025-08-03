@@ -1,7 +1,16 @@
-[gd_scene load_steps=5 format=4 uid="uid://3x7jxt8uctqw"]
+[gd_scene load_steps=8 format=4 uid="uid://3x7jxt8uctqw"]
 
+[ext_resource type="Texture2D" uid="uid://dscrxek0g2urg" path="res://levels/grassy_field/sunset.png" id="1_awqu5"]
 [ext_resource type="Texture2D" uid="uid://byl81uvgwkf1t" path="res://levels/grassy_field/forest_tileset.png" id="1_gcuem"]
 [ext_resource type="PackedScene" uid="uid://bu172gle3fq54" path="res://playable_characters/cat/Cat.tscn" id="2_gcuem"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_erylh"]
+texture = ExtResource("1_awqu5")
+0:0/size_in_atlas = Vector2i(62, 62)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_gcuem"]
+sources/1 = SubResource("TileSetAtlasSource_erylh")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uxpe7"]
 texture = ExtResource("1_gcuem")
@@ -341,6 +350,12 @@ physics_layer_1/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_uxpe7")
 
 [node name="GrassyField" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(5, 5)
+tile_set = SubResource("TileSet_gcuem")
+format = 2
+layer_0/tile_data = PackedInt32Array(-1703906, 1, 0, -1703844, 1, 0, -1703783, 1, 0, -1703722, 1, 0, -1638125, 1, 0, -1769135, 1, 0, -1703538, 1, 0)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(161, -62)
