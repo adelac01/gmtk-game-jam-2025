@@ -1,5 +1,11 @@
 extends CharacterBody2D
 
+const DEFAULT_ROTATION: float = 0.0
+const DEFAULT_SKEW: float = 0.0
+const DEFAULT_POSITION: Vector2 = Vector2()
+
+const WALKING_SCALE: Vector2 = Vector2(0.05, 0.05)
+const FLYING_SCALE: Vector2 = Vector2(0.07, 0.07) 
 
 # Speed variables
 @export var speed: float = 500.0
@@ -22,6 +28,14 @@ extends CharacterBody2D
 
 @onready var _animation = $AnimatedSprite2D;
 
+func play_animation(animation_name: String):
+	if animation_name == "walking":
+		_animation.transform = Transform2D(DEFAULT_ROTATION, WALKING_SCALE, DEFAULT_SKEW, DEFAULT_POSITION)
+		_animation.play("walking")
+	else:
+		_animation.transform = Transform2D(DEFAULT_ROTATION, FLYING_SCALE, DEFAULT_SKEW, DEFAULT_POSITION)
+		_animation.play("flight")
+
 func _physics_process(delta: float) -> void:
 	
 	is_moving = false
@@ -35,7 +49,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			_animation.flip_h = true
 		if !is_airborne:
-			_animation.play("walking")
+			play_animation("walking")
 		velocity.x = direction * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
@@ -43,7 +57,7 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		is_airborne = true
 		is_moving = true
-		_animation.play("flight")
+		play_animation("flight")
 		velocity.y += gravity_factor * get_gravity().y * delta
 		
 		# Keep velocity within limits
@@ -59,7 +73,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y += ascent_acceleration * delta
 		
 	if !is_moving: 
-		_animation.play("walking")
+		play_animation("walking")
 		_animation.stop()
 
 	print(is_moving)
