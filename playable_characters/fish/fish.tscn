@@ -1,0 +1,124 @@
+[gd_scene load_steps=13 format=3 uid="uid://dr6p77e6hqcet"]
+
+[ext_resource type="Texture2D" uid="uid://dkfccub0sb1ek" path="res://playable_characters/fish/Illustration24.png" id="1_pxq3h"]
+
+[sub_resource type="GDScript" id="GDScript_pxq3h"]
+script/source = "extends CharacterBody2D
+
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+const SPEED = 1000
+const JUMP_VELOCITY = -500
+const FLOATING = -500
+@export_range(0,1) var acceleration = 0.3
+@export_range(0,1) var deceleration = 0.3
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta * 0.25
+
+	# Handle jump.
+	if Input.is_action_just_pressed(\"jump\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+	if Input.is_action_pressed(\"jump\") and not is_on_floor() and velocity.y > 0:
+		velocity.y = move_toward(velocity.y, FLOATING, 25000 * delta)
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction := Input.get_axis(\"left\", \"right\")
+	if direction:
+		velocity.x = move_toward( velocity.x, direction * SPEED, SPEED *acceleration)
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED*deceleration)
+		
+	if direction > 0:
+		animated_sprite_2d.flip_h = false
+	elif direction < 0:
+		animated_sprite_2d.flip_h = true
+
+	move_and_slide()
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uadbn"]
+atlas = ExtResource("1_pxq3h")
+region = Rect2(0, 0, 1250, 1250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu8ma"]
+atlas = ExtResource("1_pxq3h")
+region = Rect2(1250, 0, 1250, 1250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1s6jn"]
+atlas = ExtResource("1_pxq3h")
+region = Rect2(2500, 0, 1250, 1250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w18bd"]
+atlas = ExtResource("1_pxq3h")
+region = Rect2(3750, 0, 1250, 1250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7x1ve"]
+atlas = ExtResource("1_pxq3h")
+region = Rect2(5000, 0, 1250, 1250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jv5bl"]
+atlas = ExtResource("1_pxq3h")
+region = Rect2(6250, 0, 1250, 1250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3hpo"]
+atlas = ExtResource("1_pxq3h")
+region = Rect2(7500, 0, 1250, 1250)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lag5"]
+atlas = ExtResource("1_pxq3h")
+region = Rect2(8750, 0, 1250, 1250)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pu8ma"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uadbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu8ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1s6jn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w18bd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7x1ve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jv5bl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3hpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lag5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pxq3h"]
+radius = 83.7213
+
+[node name="fish" type="CharacterBody2D"]
+script = SubResource("GDScript_pxq3h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-19, 3.00001)
+scale = Vector2(0.163458, 0.163458)
+sprite_frames = SubResource("SpriteFrames_pu8ma")
+autoplay = "default"
+frame_progress = 0.0447372
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(200, -31)
+zoom = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-18.5, 4)
+shape = SubResource("CircleShape2D_pxq3h")
