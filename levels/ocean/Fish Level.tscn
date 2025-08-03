@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cmviuihkj65s8" path="res://levels/ocean/tilemap.png" id="2_0ocq2"]
 [ext_resource type="Texture2D" uid="uid://c5xsr6aayr0pm" path="res://levels/ocean/beach_tilemap.png" id="3_bi408"]
 [ext_resource type="PackedScene" uid="uid://dr6p77e6hqcet" path="res://playable_characters/fish/fish.tscn" id="4_8ivk0"]
-[ext_resource type="PackedScene" uid="uid://dh3ifjxn5l41m" path="res://levels/debug_room/killzone.tscn" id="5_a4ryg"]
+[ext_resource type="PackedScene" path="res://levels/debug_room/killzone.tscn" id="5_a4ryg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lwe4s"]
 texture = ExtResource("1_xtxhb")
@@ -164,12 +164,14 @@ size = Vector2(345.5, 120)
 
 [node name="TileMap2" type="TileMap" parent="Fish Level"]
 z_index = -1
-scale = Vector2(20, 20)
+position = Vector2(21232, -696)
+scale = Vector2(10, 5.52)
 tile_set = SubResource("TileSet_fljgx")
 format = 2
 layer_0/tile_data = PackedInt32Array(-851940, 1, 0, -851815, 1, 0, -786529, 1, 0)
 
 [node name="TileMap" type="TileMap" parent="Fish Level"]
+position = Vector2(56, 8)
 tile_set = SubResource("TileSet_87nnt")
 collision_animatable = true
 format = 2
