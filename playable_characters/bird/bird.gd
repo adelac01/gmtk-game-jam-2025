@@ -12,7 +12,7 @@ const FLYING_SCALE: Vector2 = Vector2(0.07, 0.07)
 @export var ascent_acceleration: float = -1750.0
 @export var gravity_factor: float = 0.9
 
-#Limits
+# Limits
 @export var flight_time_limit: float = 4.0
 @export var max_up_velocity: float = -1000.0
 @export var max_down_velocity: float = 600.0
@@ -23,8 +23,9 @@ const FLYING_SCALE: Vector2 = Vector2(0.07, 0.07)
 @onready var curr_flight_time: float = flight_time_limit
 
 # Status variables
-@onready var is_moving: bool = false
-@onready var is_airborne: bool = false
+var is_moving: bool = false
+var is_airborne: bool = false
+var is_dead: bool = false
 
 @onready var _animation = $AnimatedSprite2D;
 
@@ -37,6 +38,9 @@ func play_animation(animation_name: String):
 		_animation.play("flight")
 
 func _physics_process(delta: float) -> void:
+	
+	if is_dead:
+		return
 	
 	is_moving = false
 	
@@ -78,3 +82,9 @@ func _physics_process(delta: float) -> void:
 
 	print(is_moving)
 	move_and_slide()
+
+
+func _on_killzone_player_dead() -> void:
+	is_dead = true
+	velocity = Vector2()
+	visible = false

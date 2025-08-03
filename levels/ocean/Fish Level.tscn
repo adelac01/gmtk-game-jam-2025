@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=4 uid="uid://cu2428aise7v1"]
+[gd_scene load_steps=20 format=4 uid="uid://cu2428aise7v1"]
 
+[ext_resource type="Script" uid="uid://b5ialssaine1t" path="res://misc/level_load.gd" id="1_bi408"]
 [ext_resource type="Texture2D" uid="uid://bg75o41dxl08d" path="res://levels/ocean/ocean_background.png" id="1_xtxhb"]
 [ext_resource type="Texture2D" uid="uid://cmviuihkj65s8" path="res://levels/ocean/tilemap.png" id="2_0ocq2"]
 [ext_resource type="Texture2D" uid="uid://c5xsr6aayr0pm" path="res://levels/ocean/beach_tilemap.png" id="3_bi408"]
@@ -148,10 +149,14 @@ sources/1 = SubResource("TileSetAtlasSource_8ivk0")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kcxul"]
 normal = Vector2(1, 0)
-distance = -1144.0
+distance = -996.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7v22x"]
 normal = Vector2(-0.0150737, 0.999886)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bi408"]
+normal = Vector2(-0.99992, 0.0126184)
+distance = 579.891
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q5q4k"]
 size = Vector2(532, 95)
@@ -166,6 +171,7 @@ size = Vector2(704, 20)
 size = Vector2(1408.37, 20)
 
 [node name="FishLevel" type="Node2D"]
+script = ExtResource("1_bi408")
 
 [node name="Background" type="TileMap" parent="."]
 z_index = -1
@@ -205,6 +211,10 @@ shape = SubResource("WorldBoundaryShape2D_kcxul")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Boundary"]
 position = Vector2(17085, -5363)
 shape = SubResource("WorldBoundaryShape2D_7v22x")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Boundary"]
+position = Vector2(56323.8, -450.471)
+shape = SubResource("WorldBoundaryShape2D_bi408")
 
 [node name="Killzone" parent="." instance=ExtResource("5_a4ryg")]
 collision_mask = 3
