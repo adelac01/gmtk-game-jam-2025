@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const ACCELERATION = 30
 
+@onready var timer: Timer = $Timer
 
 func _physics_process(delta: float) -> void:
 
@@ -22,3 +23,11 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 
 	move_and_slide()
+
+func _on_area_2_entered(body: Node2D) -> void:
+	print("1")
+	timer.start()
+
+
+func _on_timer_timeout() -> void:
+	get_tree().reload_current_scene()
