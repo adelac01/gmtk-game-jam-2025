@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7kjs4lehiruk"
-path="res://.godot/imported/grassy_field_tilemap.png-1b858c1dc88904e05d8dfcfb1156d8fe.ctex"
+uid="uid://cnkri6lsgtyon"
+path="res://.godot/imported/cat_walk.png-6af6f14e8b33b699f48d317b617f79c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levels/grassy_field/grassy_field_tilemap.png"
-dest_files=["res://.godot/imported/grassy_field_tilemap.png-1b858c1dc88904e05d8dfcfb1156d8fe.ctex"]
+source_file="res://playable_characters/cat/cat_walk.png"
+dest_files=["res://.godot/imported/cat_walk.png-6af6f14e8b33b699f48d317b617f79c4.ctex"]
 
 [params]
 
