@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dscrxek0g2urg" path="res://levels/grassy_field/sunset.png" id="1_awqu5"]
 [ext_resource type="Texture2D" uid="uid://byl81uvgwkf1t" path="res://levels/grassy_field/forest_tileset.png" id="1_gcuem"]
 [ext_resource type="PackedScene" uid="uid://bu172gle3fq54" path="res://playable_characters/cat/Cat.tscn" id="2_gcuem"]
-[ext_resource type="PackedScene" path="res://levels/debug_room/killzone.tscn" id="4_erylh"]
+[ext_resource type="PackedScene" uid="uid://iawis0ohqa30" path="res://levels/debug_room/killzone.tscn" id="4_erylh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uxpe7"]
 texture = ExtResource("1_gcuem")
@@ -343,7 +343,7 @@ physics_layer_1/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_uxpe7")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8nysw"]
-size = Vector2(4384.5, 58)
+size = Vector2(4384.5, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8nysw"]
 texture = ExtResource("1_awqu5")
@@ -1329,7 +1329,7 @@ scale = Vector2(1.01533, 1.09222)
 [node name="Killzone" parent="." instance=ExtResource("4_erylh")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(4006.75, -92)
+position = Vector2(4006.75, -79)
 shape = SubResource("RectangleShape2D_8nysw")
 
 [node name="Background" type="TileMapLayer" parent="."]
