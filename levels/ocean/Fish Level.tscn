@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=4 uid="uid://cu2428aise7v1"]
+[gd_scene load_steps=18 format=4 uid="uid://cu2428aise7v1"]
 
-[ext_resource type="Texture2D" uid="uid://bg75o41dxl08d" path="res://levels/ocean/Illustration28 - Copy.png" id="1_xtxhb"]
+[ext_resource type="Texture2D" uid="uid://bg75o41dxl08d" path="res://levels/ocean/ocean_background.png" id="1_xtxhb"]
 [ext_resource type="Texture2D" uid="uid://cmviuihkj65s8" path="res://levels/ocean/tilemap.png" id="2_0ocq2"]
 [ext_resource type="Texture2D" uid="uid://c5xsr6aayr0pm" path="res://levels/ocean/beach_tilemap.png" id="3_bi408"]
 [ext_resource type="PackedScene" uid="uid://dr6p77e6hqcet" path="res://playable_characters/fish/fish.tscn" id="4_8ivk0"]
 [ext_resource type="PackedScene" uid="uid://iawis0ohqa30" path="res://misc/killzone/killzone.tscn" id="5_a4ryg"]
+[ext_resource type="PackedScene" uid="uid://dvlwsvlu6ggyo" path="res://misc/loadingzone/loadingzone.tscn" id="6_0ocq2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xtxhb"]
 texture = ExtResource("1_xtxhb")
@@ -158,6 +159,12 @@ size = Vector2(532, 95)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7fb6b"]
 size = Vector2(345.5, 120)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bi408"]
+size = Vector2(704, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ocq2"]
+size = Vector2(1408.37, 20)
+
 [node name="FishLevel" type="Node2D"]
 
 [node name="Background" type="TileMap" parent="."]
@@ -187,6 +194,7 @@ tile_set = SubResource("TileSet_a4ryg")
 
 [node name="fish" parent="." instance=ExtResource("4_8ivk0")]
 position = Vector2(439, 608)
+collision_layer = 7
 
 [node name="Boundary" type="StaticBody2D" parent="."]
 
@@ -304,5 +312,23 @@ shape = SubResource("RectangleShape2D_7fb6b")
 [node name="CollisionShape2D26" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(52320, 497)
 shape = SubResource("RectangleShape2D_7fb6b")
+
+[node name="To City" parent="." instance=ExtResource("6_0ocq2")]
+collision_layer = 0
+collision_mask = 4
+file_path = "res://levels/city/city.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="To City"]
+position = Vector2(-3816, 792)
+shape = SubResource("RectangleShape2D_bi408")
+
+[node name="To Grass" parent="." instance=ExtResource("6_0ocq2")]
+collision_layer = 0
+collision_mask = 4
+file_path = "res://levels/grassy_field/GrassyField.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="To Grass"]
+position = Vector2(55223.8, 792)
+shape = SubResource("RectangleShape2D_0ocq2")
 
 [connection signal="player_dead" from="Killzone" to="fish" method="_on_killzone_player_dead"]

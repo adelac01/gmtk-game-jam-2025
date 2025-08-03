@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1qgq6236kjo4"]
-
-[ext_resource type="PackedScene" uid="uid://dwn6e8kmndkij" path="res://levels/debug_room/debug_room.tscn" id="1_3wvx3"]
-
-[node name="Game" instance=ExtResource("1_3wvx3")]
