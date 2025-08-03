@@ -175,7 +175,7 @@ script = ExtResource("1_bi408")
 
 [node name="Background" type="TileMap" parent="."]
 z_index = -1
-position = Vector2(21344, -720)
+position = Vector2(21272, -720)
 scale = Vector2(10, 5.52)
 tile_set = SubResource("TileSet_0ocq2")
 format = 2
